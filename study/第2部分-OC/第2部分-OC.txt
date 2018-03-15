@@ -1,0 +1,301 @@
+
+# OC
+# 第1课 OC面向对象之类、对象和方法
+034-048
+
+# 034
+NSLog
+我当时的问题是NSLog输出时会自动换行，那么是在前面加换行还是在后面加。
+经简单测试，是加上了日期，然后内容，然后换行。
+
+# 035
+## 快捷键的使用
+command = windows
+option = alt
+
+command + backspace 删除到行首
+command + delete 删除到行尾
+command + ／ 注释
+command + [] 前后缩进
+command + option + [] 上下移动行
+command + control + 上下 .h .m之间切换
+command + control + 左右 前进或后退
+command + R 运行
+command + B 编译
+
+## 编译的文件在哪
+在Xcode左边有Products，选中后在Show in finder中，可以看到在Products/Debug/中，
+然后链接文件在Intermediates/**.build/Debug/**.build/Objects-normal/x86_64/**.o
+
+# 036
+## import和include的区别
+## NSLog的打印
+## NS的来历
+确实来源于Jobs的NEXTSTEP
+
+# 039 类的定义、实现与使用
+Help:Class definition
+
+# 040 定义get和set
+输出NSInteger “%ld”,_age
+
+# 041 多个参数的方法，类方法
+
+- (void)setName:(NSString*)name setAge:(NSInteger)age;
+
+- (void)setName:(NSString*)name setName:(NSInteger)age;
+
+- (void)setNameAndAge:(NSString*)name :(NSInteger)age;
+
+
+# 042 变量初始值，car和manager练习
+
+    char *cOldPassword=malloc(sizeof(char)*100);
+    scanf("%s",cOldPassword);
+    NSString* oldPassword=[NSString stringWithUTF8String:cOldPassword];
+    if([oldPassword isEqualToString:_password]){
+        …
+    }
+# 43 自定义初始化方法
+-(id) initWithName:(NSString*)name{
+    return [self initWithName:name withAge:0];
+}
+
+-(id) initWithName:(NSString*)name withAge:(NSInteger)age{
+    self=[super init];
+    if(self!=nil){
+        _name=name;
+        _age=age;
+    }
+    return self;
+    
+}
+
+# 44 Book Person Rectangle Car CarEngine CarLamp
+# 45 .语法
+设置器是set方法，但获取器是直接的方法名字。
+不一定要是尾性，只要有返回值都可以调用
+设置器也可以有返回值，同时可以将一个有返回值的设置器方法的返回值取出来。
+-(NSString*)setName2:(NSString*)name;
+NSString* name3=person.name2=@"x3";
+属性不加下划线可能会重名，然后set如果用self.就会死循环，但如果变量名区分开，也是可以的。
+也就是说属性可以不加下划线也能调用点语法。
+只申明未实现的方法报错信息
+2017-09-04 19:33:57.491334 044[734:17142] *** Terminating app due to uncaught exception 'NSInvalidArgumentException', reason: '-[Person setAge2:]: unrecognized selector sent to instance 0x100207370'
+
+# 046 Dog
+
+# 047
+熟悉类
+
+# 048 import 和 include
+include 相当于拷贝
+
+# 第2课 面向对象——封装、继承、多态
+049-059
+
+049 
+开始讲 oop
+提到了属性范围的修饰符
+封装 ：对属性的封装（对数值进行校验）和对方法（封装实现细节）的封装 
+
+# 050 为什么要继承
+# 051 类的继承
+# 052 self 与 super
+# 053 方法重写
+# 054 课堂练习
+# 055-056 多态
+参数直接传父类
+# 057 课堂练习3
+
+# 058 权限控制
+默认是 protected
+
+方法没有修饰符，想要私有的方法，可以只在 .m 文件中申明。
+在外部调用该类的方法，编译器会警告，但是可以正常运行。
+也可以使用 static 修饰，这样外部就调不了。（TODO 为什么）
+
+# 059 @class 与 #import
+#input 有相互导入的问题，使用 @class 解决，但其仅告知编译器已定义该类  
+在 .m 文件中仍然要使用 #import，申明继承时也要使用 #import
+
+# 第3课 Foundation 框架
+060-080
+060
+## NSObject
+isEqual
+performSelector
+performSelector withObject
+按下 Esc 打开提示，按住 cmd 整个方法名显示下划线
+可以调用延时方法
+    [p performSelector:@selector(demo1) withObject:NULL afterDelay:2.5];
+    [[NSRunLoop currentRunLoop]run];
+
+# 061 isKindOfClass isMemberOfClass
+isKindOfClass
+> Returns a Boolean value that indicates whether the receiver is an instance of given class or an instance of any class that inherits from that class.
+
+isMemberOfClass
+> Returns a Boolean value that indicates whether the receiver is an instance of a given class.
+
+# 062 respondsToSelector
+>Returns a Boolean value that indicates whether the receiver implements or inherits a method that can respond to a specified message.
+
+# 063-066 字符串与可变字符串
+也可以用 %s 格式化 C 风格的字符串（不带@）
+
+发现，如果字符串中有中文，放法提示功能就会失效
+
+# 067-070 集合
+# 067-070 NSArray 与 NSMutableArray
+NSArray 只能存对象，不能存基本类型
+
+# 071-072 练习
+# 073 NSSet
+# 074-075 NSDictionary
+
+# 数字对象
+076 NSNumber
+077 结构体 与 NSNull
+
+# 日期对象
+078 NSDate
+079 NSDateFormatter
+
+# 异常
+080 异常
+
+# 第4课 类目和协议
+081-085
+081 类目 Category
+覆写父类方法后，无法调用父类方法
+不能为类添加实例变量
+
+082 延展
+为了解决未定义方法的警告，以及便于查看所有方法
+
+083 私有属性
+
+# 协议 Protocol
+084 协议
+@required @optional
+
+# 代理（委托）设计模式
+085
+
+# 第5课 内存管理
+086-098
+* 内存管理的概念
+* 引用计数
+* 如何持有对象所有权
+* 自动释放池
+* @property 的使用
+086 
+需要在 Build Settings 中关闭 Objective-C Automatic Reference Counting
+088
+取得所有权 alloc retain [mutable]copy
+释放所有权 release autorelease
+089
+if(_dog!=dog){
+	[_dog release];
+	_dog=[dog retain];
+}
+
+NSString 不用 retain 用 copy
+091 野指针
+EXC_BAD_ACCESS
+
+092 要调 [super dealloc];
+@property 的使用
+在文档中是 Declared Properties
+assign
+retain
+copy
+@synthesize 可以指定属性名
+
+093 数组的内存管理
+094 自动释放池
+095 自动释放池的嵌套
+[person setDog:[[Dog alloc] init]];
+不正确，要提出去，或者加上 autorelease
+
+return info;
+可改为 return [info autorelease];
+
+然后提了是把指针加入自动释放池
+
+096 在讲什么例子……
+097 类方法创建的内存管理
+
+	//使用类方法创建的对象，都已经加入到自动释放池了
+        NSString *string1=[NSString stringWithFormat:@"ss"];
+        
+        NSArray *array1=[NSArray array];
+        //使用新语法创建的对象，已经加入到自动释放池
+        NSArray *array2=@[@"xx"];
+        NSNumber *number=@100;
+        NSString *string2=@"xxx";
+098
+常见错误
+ARC
+automatic reference counting
+循环引用
+将其中一个的 retain 改为 assign
+代理也使用 assign
+定时器使引用计数加 1
+
+# 第7课 复制对象与对象归档
+099-106
+copy 与 mutableCopy
+
+100 浅拷贝和深拷贝
+101 对象的自定义拷贝
+要深拷贝应将属性也 copy 
+102
+拷贝一个不可变对量，相当于 retain
+103 对象归档（对象系列化，对象持久化）
+104 多个文件归档为一个文件
+105 归档协议 NSCoding
+106 单例设计模式
+
+# 第6课 文件管理
+107-115
+这个标注为第6课，所以前面的认为是第7课，这节课也确实应该放到之前的。
+107 沙盒
+App 的一个单独封闭文件夹，sandbox
+108
+NSHomeDirectory
+NSSearchPathForDirectoriesInDomains
+109 NSData
+110 NSFileManager
+111 练习
+112 writeToFile
+NSArray 和 NSDictionary 写入属性列表文件，存入的类型有限制
+113 NSFileHandle
+可以定位（偏移）读写
+114 读取
+115 使用 NSFileHandle 实现复制文件
+
+# 第8课 KVC、KVO和谓词
+116-123
+116 KVC
+Key Value Coding
+setValue forKey 会自动加上下划线，但不会去掉去查找。
+属性名不加下划线时，会优先调用 set、get 方法，但是加了下划线，就直接设置，没有调 set get方法
+
+117 键值路径与一对多的关系
+118 KVC 的运算
+@count @sum @avg @max @min
+
+119 KVO
+Key Value Observing
+addObserver
+observeValueForKeyPath
+使用 set 方法修改属性值，才能触发 KVO
+
+120
+使用 KVC 修改也会触发 KVO
+
+121 通知的使用
+122 缺少了这一课，但是比较别的视频版本，好像不少这一课
+123 谓词
