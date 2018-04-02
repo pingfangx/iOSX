@@ -1,0 +1,243 @@
+## 1.1 iOS概述和架构
+124
+
+    Cocoa Touch
+        UIKit
+        MapKit
+        Address Book
+        Message UI
+    Media
+    Core Service
+        Foundation
+        Core Foundation
+    Core OS
+
+## 1.2 iOS平台开发限制和方式
+125 
+
+
+## 1.3 Hello World
+126 
+集成开发环境的介绍
+
+    Xcode
+    Interface Builder
+    Instruments
+    iPhone Simulator
+    iOS SDK
+
+    xib nib 
+xib 文件也是 xml 文件
+
+## 1.4 Xcode介绍1
+127 应用程序文件的组织
+
+## 1.5 Xcode介绍2
+128 项目文件释义
+
+## 1.6 完善我们应用程序
+129
+* 应用程序图标
+* 设置启动页面
+* 适配
+
+
+## 1.7 模拟器常用操作
+130
+可以在菜单中选择操作
+
+
+## 1.8 沙盒机制（概述）
+131
+
+
+## 1.9 应用程序的生命周期
+132
+
+    main
+    UIApplicationMain
+    自动释放池的循环创建与释放
+
+## 1.10 开发者计划与作业
+133
+
+
+## 2.1 window的基本概念和用法
+134
+UIKit 框架结构
+UIView，UIViewController，UIResponder
+UIScreen
+
+## 2.2 视图的基本概念
+135
+UIView
+
+Frame
+Bounds
+Center
+
+## 2.4 UIView的基本属性和自定义
+136
+
+## 2.5 简单仿射变换
+137
+tag 属性
+138 坐标系统变换
+
+## 2.6 UIView的ContentMode
+139 相当于 scaleType
+clipToBounds
+
+## 2.7 UIView动画简单示例
+140 
+
+## 3.1 视图控制器的基本概念
+141
+
+## 3.2 视图控制器的创建
+142
+
+## 3.3 视图控制器视图的装载
+143 UIViewController 的生命周期
+讲师的翻译也是醉醉的……
+
+访问 view
+不存在则调用 loadView
+如果未重写，则调用 initWithNibName
+最后调用 viewDidLoad
+
+## 3.4 视图控制器视图的出现与消失
+144
+
+## 3.5 视图控制器视图的卸载（6.0之前）
+145
+卸载不再当前界面显示的
+
+## 3.6 视图控制器视图的卸载（6.0之后）
+146
+不再调用 viewWillUnload 和 viewDidUnload
+而是调用 didReceiveMemoryWarning
+
+## 3.7 模态视图、控制方向
+147
+presentModalViewController
+应该在 dismiss 将引用的释放掉。
+动画效果
+modalVC.modalTransitionStyle
+
+支持多个方向
+
+
+## 3.8 代理设计模式
+148 使用代理完成作业
+
+
+## 3.9 通知的用法
+149 使用通知完成上述作业
+
+## 4.1 UILabel用法
+150 UILabel
+
+## 4.2 UIControl初识
+151 处理事件
+
+## 4.3 UIButton用法
+152 按钮控件
+
+## 4.4 UITextField用法
+153 文本输入控件
+
+## 4.5 UITextField代理方法
+154
+
+## 4.6 UISlider用法
+155 滑动控件
+
+## 4.7 SegmentedControl
+156 分段控件
+
+## 4.8 UIPageControl
+157 分页控件
+
+## 4.9 UIActivityView用法
+158 UIActivityIndicatorView
+
+
+## 4.10 UIAlertAndUIActionSheet
+159 警告视图和提示视图
+
+## 4.11 UIImageView用法
+160 缺少该课，压缩包中文件已损坏，无法解压。
+
+## 4.12 作业
+161
+
+## 5.1 导航控制器的基本概念
+162 
+
+## 5.2 导航控制器课堂实例1
+163
+
+## 5.3 导航控制器常用属性和方法
+164
+
+## 5.4 导航控制器课堂实例2
+165 push pop
+
+## 5.5 导航栏的基本概念
+166 UINavigationBar
+
+一个 navigationController
+包含一个 navigationBar
+每个 ViewController 包含各自的 navigationItem
+
+## 5.6 导航栏课堂实例3
+167
+
+## 5.7 ToolBar的概念和用法
+168 工具栏
+
+## 5.8 导航控制器代理方法的使用
+169
+
+## 5.9 自定义导航栏
+170
+
+## 5.10 导航控制器小结和作业
+171
+一个 UINavigationController 对应一个 NavigationBar 实例
+一个 UINavigationController 可以包含多个 UIViewController
+每一个 UIViewController 对应一个 UINavigationItem 实例
+UINavigationItem 控制多个 UIBarButtonItem
+一个 UINavigationController 控制一个 UIToolBar 实例
+UIToolBar 的 UIBarButtonItem 由当前的视图控制器管理，而不是由导航控制器控制
+
+## 6.1 UITabBarController的基本概念
+172
+
+## 6.2 UITabBarController基本用法1
+173
+
+## 6.3 UITabBarController的层次关系
+174 结构
+
+## 6.4 UITabBarController基本用法2
+175
+plist 中添加中文
+
+## 6.5 UITabBarController代理的使用
+176 第 3 节
+
+## 6.6 UITabBarController和UINavigation的集成
+177 第 4 节
+
+## 6.7 UITaBarController基本用法3
+178
+
+## 6.8 UITabBar的基本概念
+179 自定义一个
+
+## 6.9 自定义TabBar
+180
+181
+
