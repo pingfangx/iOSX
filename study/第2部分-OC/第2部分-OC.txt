@@ -74,13 +74,13 @@ Help:Class definition
 # 44 Book Person Rectangle Car CarEngine CarLamp
 # 45 .语法
 设置器是set方法，但获取器是直接的方法名字。
-不一定要是尾性，只要有返回值都可以调用
+不一定要是属性，只要有返回值都可以调用
 设置器也可以有返回值，同时可以将一个有返回值的设置器方法的返回值取出来。
 -(NSString*)setName2:(NSString*)name;
 NSString* name3=person.name2=@"x3";
 属性不加下划线可能会重名，然后set如果用self.就会死循环，但如果变量名区分开，也是可以的。
 也就是说属性可以不加下划线也能调用点语法。
-只申明未实现的方法报错信息
+只声明未实现的方法报错信息
 2017-09-04 19:33:57.491334 044[734:17142] *** Terminating app due to uncaught exception 'NSInvalidArgumentException', reason: '-[Person setAge2:]: unrecognized selector sent to instance 0x100207370'
 
 # 046 Dog
